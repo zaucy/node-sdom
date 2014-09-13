@@ -1,0 +1,31 @@
+{
+  "name": "sdom",
+  "version": "0.0.1",
+  "description": "Use JavaScript/HTML/CSS to run your web server with a server-side DOM. Allows for server-side and client-side context scripts to be loaded.",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/saucy/node-sdom"
+  },
+  "keywords": [
+    "sdom",
+    "server",
+    "dom",
+    "server-side"
+  ],
+  "author": "Ezekiel Warren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saucy/node-sdom/issues"
+  },
+  "homepage": "https://github.com/saucy/node-sdom",
+  "dependencies": {
+    "jsdom": "^1.0.0-pre.6"
+  },
+  "devDependencies": {
+    "express": "^4.9.0"
+  }
+}

@@ -1,0 +1,18 @@
+<body>
+	<script context="client">
+	exports.scriptText = "Hello from script1";
+	</script>
+	<script context="client">
+	exports.scriptText = scriptText + ", Hello from script2.";
+	var el = document.createElement("div");
+	el.textContent = exports.scriptText;
+	document.body.appendChild(el);
+	</script>
+	<script context="client"></script>
+	<div>test</div>
+	<script context="server">
+	var el = document.createElement("div");
+	el.textContent = "FROM SERVER!";
+	document.body.appendChild(el);
+	</script>
+</body>
