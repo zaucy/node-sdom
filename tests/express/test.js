@@ -8,7 +8,7 @@ app.engine("html", sdom.__express);
 app.set("view engine", "html");
 
 app.get("/", function(req, res) {
-	
+
 	res.render("index", function(err, html) {
 		if(err) return res.end("internal server error");
 		res.end(html);
@@ -16,5 +16,5 @@ app.get("/", function(req, res) {
 });
 
 app.use(function(req, res, next) {
-	req.url
+	res.end(req.method + " " + req.url);
 });
