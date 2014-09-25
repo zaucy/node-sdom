@@ -117,6 +117,7 @@ function processScriptTag(window, script, settings) {
 	
 	// Ignore classic script tags.
 	if(!scriptContext) {
+		script.parentElement.removeChild(script);
 		return;
 	}
 	
@@ -185,7 +186,7 @@ function processScriptTag(window, script, settings) {
 					
 					var scripts = null;
 					
-					while((scripts=el.getElementsByTagName("script")).length > 0) {
+					while((scripts=el.querySelectorAll("script[context]")).length > 0) {
 						processScriptTag(window, scripts[0], settings);
 					}
 					
@@ -217,9 +218,9 @@ function processScriptTag(window, script, settings) {
 					
 					script.parentElement.insertBefore(el, script);
 					
-					var scripts = el.getElementsByTagName("script");
+					var scripts = el.querySelectorAll("script[context]");
 					
-					while((scripts=el.getElementsByTagName("script")).length > 0) {
+					while((scripts=el.querySelectorAll("script[context]")).length > 0) {
 						processScriptTag(window, scripts[0], settings);
 					}
 					
@@ -281,7 +282,7 @@ createNodeDOMServer.__express = function(path, options, callback) {
 				}
 
 				var document = window.document;
-				var scripts = document.getElementsByTagName("script");
+				var scripts = document.querySelectorAll("script[context]");
 
 				for(var i=0; scripts.length > i; i++) {
 					processScriptTag(window, scripts[i], settings);
