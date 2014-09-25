@@ -115,6 +115,11 @@ function processScriptTag(window, script, settings) {
 	var scriptExt = "";
 	var scriptContent = "";
 	
+	// Ignore classic script tags.
+	if(!scriptContext) {
+		return;
+	}
+	
 	if(!script.src) {
 		scriptContent = script.textContent;
 	} else {
